@@ -16,12 +16,15 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
 public class CoronaVirusDataService {
 
     private static String VIRUS_DATA_URL="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv";
     private List<LocationStats> allStats=new ArrayList<>();
+
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
 
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
